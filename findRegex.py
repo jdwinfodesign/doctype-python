@@ -1,32 +1,20 @@
 # Seems to work
+
+import os
 import re
+# TODO Define regex
+# '^<!DOCTYPE concept.*>$' --> This one finds all variations 
 
-#doctype = '<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">'
-doctype2 = '''<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" /n[
-<!-- Begin Document Specific Declarations -->
+# TODO Open file
+# c_about_defining_payload.dita
 
+file = open('C:\\Users\\jdwin\\Documents\\jdwinfodesign\\doctype-python\\src-use\\c_about_defining_payload.dita','r')
+file_contents = file.read()
+print(file_contents)
+file.close()
+# TODO Find string matching regex
 
-<!-- End Document Specific Declarations -->
+# TODO Replace regex with new string
 
-]>'''
-##beginsWithDoctype = re.compile(r'^<!DOCTYPE concept')
-##print (beginsWithDoctype.search(doctype))
-# <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+# TODO Save file with new string
 
-##<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
-##
-##<!-- Begin Document Specific Declarations -->
-##
-##
-##<!-- End Document Specific Declarations -->
-##
-##]>
-
-##endsWithDoctype = re.compile(r'>$')
-##print(endsWithDoctype.search(doctype))
-##
-##beginAndEndDoctype = re.compile(r'^<!DOCTYPE concept.*>$', re.DOTALL)
-##print(beginAndEndDoctype.search(doctype))
-# the following shows the entire doctype
-beginAndEndDoctype2 = re.compile(r'^<!DOCTYPE concept.*>$', re.DOTALL)
-print(beginAndEndDoctype2.findall(doctype2))
