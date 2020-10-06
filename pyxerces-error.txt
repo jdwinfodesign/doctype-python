@@ -1,0 +1,18 @@
+     |████████████████████████████████| 122 kB 211 kB/s
+    ERROR: Command errored out with exit status 1:
+     command: 'c:\users\jdwin\appdata\local\programs\python\python38\python.exe' -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'C:\\Users\\jdwin\\AppData\\Local\\Temp\\pip-install-rhhvgcsf\\pyxerces\\setup.py'"'"'; __file__='"'"'C:\\Users\\jdwin\\AppData\\Local\\Temp\\pip-install-rhhvgcsf\\pyxerces\\setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base 'C:\Users\jdwin\AppData\Local\Temp\pip-pip-egg-info-23c7vvdg'
+         cwd: C:\Users\jdwin\AppData\Local\Temp\pip-install-rhhvgcsf\pyxerces\
+    Complete output (5 lines):
+    Traceback (most recent call last):
+      File "<string>", line 1, in <module>
+      File "C:\Users\jdwin\AppData\Local\Temp\pip-install-rhhvgcsf\pyxerces\setup.py", line 51, in <module>
+        os.environ['OPT'] = " ".join([flag for flag in opt.split() if flag != '-Wstrict-prototypes'])
+    AttributeError: 'NoneType' object has no attribute 'split'
+    ----------------------------------------
+ERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+
+from bs4.diagnose import diagnose
+with open('test.dita') as fp:
+	data=fp.read()
+
+diagnose(data)

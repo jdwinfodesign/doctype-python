@@ -1,0 +1,74 @@
+>>> from bs4.diagnose import diagnose
+>>> with open('test.dita') as fp:
+	data=fp.read()
+
+	
+>>> foo = diagnose(data)
+Diagnostic running on Beautiful Soup 4.9.1
+Python version 3.8.5 (tags/v3.8.5:580fbb0, Jul 20 2020, 15:57:54) [MSC v.1924 64 bit (AMD64)]
+Found lxml version 4.5.2.0
+Found html5lib version 1.1
+
+Trying to parse your markup with html.parser
+Here's what html.parser did with the markup:
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+<!-- End Document Specific Declarations -->
+]&gt;
+<concept id="i713958">
+ <title>
+  Payload definition
+ </title>
+</concept>
+--------------------------------------------------------------------------------
+Trying to parse your markup with html5lib
+Here's what html5lib did with the markup:
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<!-- End Document Specific Declarations -->
+<html>
+ <head>
+ </head>
+ <body>
+  ]&gt;
+  <concept id="i713958">
+   <title>
+    Payload definition
+   </title>
+  </concept>
+ </body>
+</html>
+--------------------------------------------------------------------------------
+Trying to parse your markup with lxml
+Here's what lxml did with the markup:
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<!-- Begin Document Specific Declarations -->
+<!-- End Document Specific Declarations -->
+<html>
+ <body>
+  <p>
+   ]&gt;
+   <concept id="i713958">
+    <title>
+     Payload definition
+    </title>
+   </concept>
+  </p>
+ </body>
+</html>
+--------------------------------------------------------------------------------
+Trying to parse your markup with lxml-xml
+Here's what lxml-xml did with the markup:
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<!-- Begin Document Specific Declarations -->
+<!-- End Document Specific Declarations -->
+<concept id="i713958">
+ <title>
+  Payload definition
+ </title>
+</concept>
+--------------------------------------------------------------------------------
