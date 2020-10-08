@@ -15,10 +15,14 @@ file.close()
 
 # TODO Find the document type declaration
 regexDoctype = re.compile('<!DOCTYPE concept.*\[[\s|\S]*\]>')
-origDoctype = str(regexDoctype.findall(file_content))
+origDoctype = str(regexDoctype.findall(new))
 print(origDoctype)
 
-file.close()
+# TODO Strip extraneous chars from origDoctype string
+# print(orig_text.strip('-$'))
+
+cleanOrigDoctype = origDoctype.strip('\[\'\]')
+print(cleanOrigDoctype)
 
 #-------------------------------------
 
