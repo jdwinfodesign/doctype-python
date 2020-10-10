@@ -1,5 +1,3 @@
-# Seems to work
-
 import os
 import re
 from lxml import etree
@@ -13,12 +11,21 @@ from io import BytesIO
 ##etree.tostring(tree)
 
 # below is answer from stackoverload thread
-root = etree.parse(r'src\4etree.dita')
+root = etree.parse(r'src\test-30-c.dita')
 # Print the loaded XML
+# The lxml tutorial did not produce results as shown in its example
+# print(etree.tostring(root,pretty_print=True))
+# I found the following, which produces a tree, in stackoverflow
+# Interestingly, the pretty print seems useless
+# The encoding is what makes the tree print as a tree, instead
+# of a string with '\n' in place of whitespace
 print(etree.tostring(root,pretty_print=True,encoding='unicode'))
-
-
-
+##>>> docinfo=root.docinfo
+##>>> docinfo
+##<lxml.etree.DocInfo object at 0x000002483FD34FA0>
+##>>> docinfo.doctype
+##'<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">'
+##>>>
 
 
 # >>> print(etree.tostring(root, pretty_print=True))

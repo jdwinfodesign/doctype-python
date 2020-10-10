@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+"concept.dtd">
+<concept id="conceptId">
+ <title>Company Name</title>
+ <conbody>
+	<p>Paragraph</p>
+ </conbody>
+</concept>
+<!--
+regexDoctype = re.compile(r'<!DOCTYPE concept.*\s*\S*>')
+-->

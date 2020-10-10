@@ -7,6 +7,12 @@
 <!-- End Document Specific Declarations -->
 
 ]>
-
-
-<concept id = "i713958"><title>Payload definition</title></concept>
+<concept id="conceptId">
+ <title>Company Name</title>
+ <conbody>
+	<p>Paragraph </p>
+ </conbody>
+</concept>
+<!--
+regexDoctype = re.compile(r'<!DOCTYPE concept.*\[[\s*\S*]*\]>')
+-->

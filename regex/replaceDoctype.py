@@ -5,54 +5,25 @@ import re
 
 # Open file
 
-file = open(r'C:\Users\jdwin\Documents\jdwinfodesign\doctype-python\regex\src-use\test-01.dita','r')
-file_content = file.read()
-# next line can verify file content for sanity check
-# print(file_content) 
+file = open(r'src\test-202.dita','r')
+content = file.read()
 
-new = file_content
-file.close()
+new = content
+#file.close()
 
 # TODO Find the document type declaration
-regexDoctype = re.compile('<!DOCTYPE concept.*\[[\s|\S]*\]>')
+regexDoctype = re.compile(r'<!DOCTYPE concept.*\s*\S*>')
 origDoctype = str(regexDoctype.findall(new))
 print(origDoctype)
 
-# TODO Strip extraneous chars from origDoctype string
-# print(orig_text.strip('-$'))
+#regexDoctype = re.compile(r'<!DOCTYPE concept.*\[[\s|\S]*\]>')
+# first capturing group
+# (\[?[\s|\S]*\]?)?
+file.close()
 
-cleanOrigDoctype = origDoctype.strip('\[\'\]')
-print(cleanOrigDoctype)
-
-#-------------------------------------
-
-# TODO Define new doctype
-# <!DOCTYPE concept PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:concept" "concept.dtd">
-newDoctype = ('<!DOCTYPE concept PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:concept" "concept.dtd">')
-
-#TODO Replace old doctype with new
-replace=new.replace(origDoctype, newDoctype)
-print(replace)
-
-#-------------------------------------
-
-# r'<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd" [\n\n<!-- Begin Document Specific Declarations -->\n\n\n<!-- End Document Specific Declarations -->\n\n]>'
-# r'<!DOCTYPE concept PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:concept" "concept.dtd">'
-
-#-------------------------------------
-
-# TODO Open a new file
-
-file = open(r'C:\Users\jdwin\Documents\jdwinfodesign\doctype-python\regex\out\test-02.dita','w')
-
-# next line can verify file content for sanity check
-# print(file_content) 
-
-#-------------------------------------
-
-# TODO Save file with new string
-
-
-# \[[\s|\S]*\]
-# <!DOCTYPE concept.*\[[\s|\S]*\]>
-# <!DOCTYPE concept.*(\[[\s|\S]\])?>
+# test-20.dita
+# ['<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">']
+# test-201.dita
+# ['<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" ']
+# test-202.dita
+# ['<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"']
