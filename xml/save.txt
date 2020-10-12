@@ -1,0 +1,49 @@
+# from stackoverflow
+#Master XML
+parser = etree.XMLParser(strip_cdata=False)
+tree = etree.parse(r'.\src\test-30-c.dita', parser)
+# Find the //input node - which has a lot of subelems
+root = tree.xpath('//concept')[0]
+print(etree.tostring(root, pretty_print=True, encoding='unicode'))
+
+## from stackoverflow
+from xml.etree import ElementTree as et
+tree = etree.parse(r'.\src\test-30-c.dita', parser)
+tree.find('concept/title').text = 'New Title'
+tree.write(foo.dita)
+
+##from lxml tutorial
+root = etree.Element("root")
+root.text = "TEXT"
+
+print(root.text)
+
+etree.tostring(root)
+
+
+# stackoverflow
+from xml.etree.ElementTree import parse, tostring
+doc = parse('file.xml')
+elem = doc.findall('original_spoken_locale')[0]
+elem.text = 'new-value'
+print tostring(doc.getroot())
+
+================================================================
+# Module etree
+
+# Classes
+XMLParser
+
+XMLParser(self, encoding=None, attribute_defaults=False, dtd_validation=False, load_dtd=False, no_network=True, ns_clean=False, recover=False, schema: XMLSchema =None, huge_tree=False, remove_blank_text=False, resolve_entities=True, remove_comments=False, remove_pis=False, strip_cdata=True, collect_ids=True, target=None, compact=True)
+
+# Functions
+parse(source, parser=None, base_url=None)
+Return an ElementTree object loaded with source elements. If no parser is provided as second argument, the default parser is used.
+
+tostring(element_or_tree, encoding=None, method="xml", xml_declaration=None, pretty_print=False, with_tail=True, standalone=None, doctype=None, exclusive=False, inclusive_ns_prefixes=None, with_comments=True, strip_text=False, )
+Serialize an element to an encoded string representation of its XML tree.
+
+===============================================================
+.write('foo.dita',xml_declaration=True, encoding='UTF-8',
+    doctype='<!DOCTYPE concept PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:concept" "concept.dtd">')
+

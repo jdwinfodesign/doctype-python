@@ -11,6 +11,7 @@ from io import BytesIO
 ##etree.tostring(tree)
 
 # below is answer from stackoverload thread
+
 root = etree.parse(r'src\test-30-c.dita')
 # Print the loaded XML
 # The lxml tutorial did not produce results as shown in its example
@@ -19,6 +20,7 @@ root = etree.parse(r'src\test-30-c.dita')
 # Interestingly, the pretty print seems useless
 # The encoding is what makes the tree print as a tree, instead
 # of a string with '\n' in place of whitespace
+
 print(etree.tostring(root,pretty_print=True,encoding='unicode'))
 ##>>> docinfo=root.docinfo
 ##>>> docinfo
