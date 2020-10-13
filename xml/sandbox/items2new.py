@@ -3,14 +3,14 @@ from lxml import etree
 import xml.etree.ElementTree as ET
 
 parser = etree.XMLParser(strip_cdata=False)
-tree = etree.parse(r'concept-00.dita', parser)
+tree = etree.parse(r'../../src/c_about_defining_payload.dita', parser)
 
 #tree = ET.parse('concept-00.dita')
 
 root = tree.getroot()
 
 ### changing a field text
-##for elem in root.iter('item'):
+##for elem in root.iter('title'):
 ##    elem.text = 'new text'
 ##
 ### modifying an attribute
@@ -21,4 +21,6 @@ root = tree.getroot()
 ##for elem in root.iter('item'):
 ##    elem.set('name2', 'newitem2')
 
-tree.write('newConcept-00.dita', xml_declaration=True, encoding='UTF-8', doctype='<!DOCTYPE concept PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:concept" "concept.dtd">')
+tree.write('../../out/c_about_defining_payload.dita', xml_declaration=True,
+           encoding='UTF-8',
+           doctype='''<!DOCTYPE concept PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:concept" "concept.dtd">''')
