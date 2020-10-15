@@ -14,7 +14,7 @@ def doctypeFix(filename):
     root = tree.getroot()
 
 # TODO replace doctype with variable
-    tree.write('out/c_about_defining_payload.dita', xml_declaration=True,
+    tree.write('..\out\c_about_defining_payload.dita', xml_declaration=True,
                encoding='UTF-8',
                doctype='''<!DOCTYPE concept PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:concept" "concept.dtd">''')
 
@@ -36,18 +36,13 @@ def doctypeFix(filename):
 string = r'<!DOCTYPE concept'
 
 def check():
-        with open(r'../src/c_about_defining_payload.dita','r') as f:
+        with open(r'..\src\c_about_defining_payload.dita','r') as f:
                 if string in f.read():
                         doctypeFix(r'../src/c_about_defining_payload.dita')
                         print(string)
                 else:
                         print('false')
                         
-# --------------------------------------------------------------------------------
-# TODO this is filename param; to be replaced by getting filenames from directory 
-# doctypeFix(r'../src/c_about_defining_payload.dita')
-# check()
-
 # --------------------------------------------------------------------------------
 # TODO Iterate over all files in directory
 # C:\Users\jdwin\Documents\jdwinfodesign\doctype-python\src
@@ -74,6 +69,9 @@ def walk():
             #if filepath.endswith(".jpg") or filepath.endswith(".png"):
             print (filepath)
             #print (filename)
-##listdir()
-##scandir()
-walk()
+            
+# doctypeFix(r'../src/c_about_defining_payload.dita')
+# check()
+# listdir()
+# scandir()
+# walk()
