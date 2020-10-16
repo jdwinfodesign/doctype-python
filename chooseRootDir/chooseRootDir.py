@@ -5,8 +5,9 @@ from lxml import etree
 import xml.etree.ElementTree as ET
 
 # C:\Users\jdwin\Documents\jdwinfodesign\doctype-python\src
-def walk(rootDir):
+def chooseDir(rootDir):
     print('You want to search: ' + rootDir + '?')
+    print('Type \'y\' and ENTER to confirm, any other key to abort.')
     confirm = input()
     if confirm == 'y':
         print('ok')
@@ -36,4 +37,4 @@ print(r'Enter the absolute path to search. For example:')
 print(r'C:\Users\jdwin\Documents\jdwinfodesign\doctype-python\walkTest')
 
 rootDir = input()
-walk(rootDir)
+chooseDir(rootDir)

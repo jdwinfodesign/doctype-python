@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 # COPY FILE WITH NEW DOCTYPE
 # --------------------------------------------------------------------------------
 # filename is passed from call to function below
-def doctypeFix(filename):
+def fixDoctype(filename):
 
     parser = etree.XMLParser(strip_cdata=False)
     tree = etree.parse(filename, parser)
@@ -70,7 +70,7 @@ def walk():
             print (filepath)
             #print (filename)
             
-# doctypeFix(r'../src/c_about_defining_payload.dita')
+# fixDoctype(r'../src/c_about_defining_payload.dita')
 # check()
 # listdir()
 # scandir()
