@@ -6,8 +6,7 @@ import xml.etree.ElementTree as et
 
 ##THIS PYTHON SCRIPT LETS YOU REPLACE THE
 ##DOCTYPE DECLARATIONS IN A SET OF XML FILES
-##IT IS INTENDED FOR DITA FILES BUT SHOULD
-##WORK FOR ANY XML FILES 
+##IT IS INTENDED PRIMARILY FOR DITA FILES 
 
 # Step 1: CONFIRM DIRECTORIES CHOSEN
 def verifyDirs(inDir):
@@ -55,7 +54,7 @@ def fixDoctype(inDir, outDir, filename, filepath):
 ##
 ### TODO replace doctype with variable
     tree.write(outDir + '\\' + filename, xml_declaration=True, encoding='UTF-8', doctype='''<!DOCTYPE concept PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:concept" "concept.dtd">''')
-# TODO replace doctype with variable
+
     print(' inDir: ' + inDir)
     print('  outDir: ' + outDir)
     print('filename: ' + filename)
