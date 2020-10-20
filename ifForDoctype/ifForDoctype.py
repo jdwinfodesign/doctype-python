@@ -53,6 +53,7 @@ def fixDoctype(inDir, outDir, filename, filepath):
     root = tree.getroot()
 ##
 ### TODO replace doctype with variable
+### TODO: MAKE DIR IF NONE EXISTS
     tree.write(outDir + '\\' + filename, xml_declaration=True, encoding='UTF-8', doctype='''<!DOCTYPE concept PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:concept" "concept.dtd">''')
 
     print(' inDir: ' + inDir)
