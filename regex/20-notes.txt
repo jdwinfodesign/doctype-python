@@ -1,9 +1,0 @@
-regexDoctype = re.compile(r'<!DOCTYPE concept.*')
-
-# test-20.dita
-# ['<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">']
-# test-201.dita
-# ['<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" ']
-# test-202.dita
-# ['<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"']
-
