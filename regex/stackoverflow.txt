@@ -1,4 +1,0 @@
-I have a collection of XML files that have a variety of Document Type Declarations that I need to normalize so that all the files have the same one. I would like to automate this replacement, as I anticipate more of these in the future. 
-
-I am new to Python, and it may not be the best choice, but I thought it would be an interesting challenge to write a script that can make these replacements, if possible. 
-
