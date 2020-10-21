@@ -2,6 +2,7 @@ import os
 import sys
 import pyinputplus as pyip
 from lxml import etree
+import shutil
 
 # Open file
 #fin = open(r'C:\Users\jdwin\Documents\jdwinfodesign\doctype-python\str\src\test-10.dita','r')
@@ -51,6 +52,7 @@ def parseFile(inDir, outDir, filename, filepath):
 
 ##
 ### TODO replace doctype with variable
+    
     tree.write(outDir + '\\' + filename, xml_declaration=True, encoding='UTF-8', doctype='''<!DOCTYPE concept PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:concept" "concept.dtd">''')
 
 # TODO replace doctype with variable
@@ -68,16 +70,9 @@ def walkDoctype(inDir, outDir):
         for filename in files:
             filepath = subdir + os.sep + filename
 
-            #if filepath.endswith(".jpg") or filepath.endswith(".png"):
-##            print()
-##            print ('filepath: ' + filepath)
-##            print ('filename: ' + filename)
-##            print()
             parseDoctype(inDir, outDir, filename, filepath)
 
 def parseDoctype(inDir, outDir, filename, filepath):
-##    print('inDir: ' + inDir)
-##    print(' outDir: ' + outDir)
 
     parser = etree.XMLParser(strip_cdata=False)
     tree = etree.parse(filepath, parser)
@@ -85,8 +80,7 @@ def parseDoctype(inDir, outDir, filename, filepath):
     genTaskString = '''generalTask'''
 
     print(r'      root_name: ' + docinfo.root_name)
-##
-    root = tree.getroot()
+
 
     if docinfo.root_name == 'concept':
             newDoctype = '''<!DOCTYPE concept PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:concept" "concept.dtd">'''
@@ -106,18 +100,8 @@ def parseDoctype(inDir, outDir, filename, filepath):
     else:
                 print(r'root_name not in list')
             
-            
-
-
-    
     tree.write(outDir + '\\' + filename, xml_declaration=True, encoding='UTF-8', doctype=newDoctype)
 
-# TODO replace doctype with variable
-    
-##    print('   inDir: ' + inDir)
-##    print('  outDir: ' + outDir)
-##    print('filename: ' + filename)
-    print()
 
 ##============================================================================================
 ## <!DOCTYPE task PUBLIC "-//OASIS//DTD DITA General Task//EN" "generalTask.dtd">

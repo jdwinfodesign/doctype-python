@@ -4,39 +4,10 @@ import pyinputplus as pyip
 from lxml import etree
 import shutil
 
-##REPLACE THE DOCTYPE DECLARATIONS IN A SET OF XML FILES
-
-# Step 1: VERIFY THE INPUT (CHOSEN WHEN THE PROGRAM STARTS)
-#         THEN ENTER THE OUTPUT DIRECTORY AND START PROCESSING
-
-def verifyDirs(inDir):
-    print('You want to modify the files in: ' + inDir + '?')
-    print('Type \'y\' and ENTER to confirm, any other key to abort.')
-    confirmInDir = input()
-    if confirmInDir == 'y':
-        print(r'Enter the absolute path to direct the output. For example:')
-        print(r'C:\Users\jdwin\Documents\XMLfiles\out')
-        outDir = input()
-        print('You want to direct the output to: ' + outDir + '?')
-        print('Type \'y\' and ENTER to confirm, any other key to abort.')
-        confirmOutDir = input()
-        if confirmOutDir == 'y':
-            print('OK')
-            copyDirs(inDir, outDir)
-        else:
-            print('Goodbye')
-        
-    else:
-            print('Goodbye')
-
-# Step 2: COPY THE DIRECTORY TREE FROM INPUT DIRECTORY TO OUTPUT DIRECTORY
-
 def copyDirs(inDir, outDir):
     shutil.copytree(inDir, outDir, dirs_exist_ok=True)
-    walkDoctype(inDir, outDir)
 
-# Step 3: WALK THE OUTPUT DIRECTORY TO GET THE FILEPATH INFO FOR VARIABLES
-#         THEN CALL THE FIXDOCTYPE FUNCTION
+#--------------------------------------------------------------------------------
 
 def walkDoctype(inDir, outDir):
     for subdir, dirs, files in os.walk(outDir):
@@ -44,9 +15,6 @@ def walkDoctype(inDir, outDir):
             filepath = subdir + os.sep + filename
 
             fixDoctype(outDir, filename, filepath)
-
-
-# Step 4: COPY EACH FILE IN THE DIRECTORY, REPLACING DOCTYPE
 
 def fixDoctype(outDir, filename, filepath):
 
@@ -61,7 +29,6 @@ def fixDoctype(outDir, filename, filepath):
     elif docinfo.root_name == 'task':
         if genTaskString in docinfo.doctype:
             newDoctype = '''<!DOCTYPE task PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:generalTask" "generalTask.dtd">'''
-            print(r'Writing new doctype to ' + filepath)
         else:
             newDoctype = '''<!DOCTYPE task PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:task" "task.dtd">'''
             print(r'Writing new doctype to ' + filepath)
@@ -82,16 +49,12 @@ def fixDoctype(outDir, filename, filepath):
                 
     tree.write(filepath, xml_declaration=True, encoding='UTF-8', doctype=newDoctype)
 
-#---------------------------------------------------------------------
-
-# Step 0: Prompt user to choose directory containing
-#         files to be modified (inDir) and
-#         location for output (outDir)
+#--------------------------------------------------------------------------------
 
 print(r'Enter the absolute path to the directory containing files to modify. For example:')
 print(r'C:\Users\jdwin\Documents\XMLfiles\src')
 
-inDir = input()
-
-verifyDirs(inDir)
-
+inDir = r'C:\Users\jdwin\Documents\jdwinfodesign\doctype-python\copyDirs\src'
+outDir = r'C:\Users\jdwin\Documents\jdwinfodesign\doctype-python\copyDirs\out'
+copyDirs(inDir, outDir)
+walkDoctype(inDir, outDir)
