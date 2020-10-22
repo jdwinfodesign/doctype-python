@@ -32,7 +32,6 @@ def verifyDirs(inDir):
 # Step 2: COPY THE DIRECTORY TREE FROM INPUT DIRECTORY TO OUTPUT DIRECTORY
 
 def copyDirs(inDir, outDir):
-        
     shutil.copytree(inDir, outDir, dirs_exist_ok=True)
     walkDoctype(inDir, outDir)
 
@@ -40,17 +39,13 @@ def copyDirs(inDir, outDir):
 #         THEN CALL THE FIXDOCTYPE FUNCTION
 
 def walkDoctype(inDir, outDir):
-
-##/._*/ and delete veto files options in our smb.conf to prevent creation of such files. Instead we leave .DS_STORE
-    macRes = ('._', '.DS_Store')
     xmlExt = ('ditamap', 'dita', 'xml')
-    
     for subdir, dirs, files in os.walk(outDir):
         for filename in files:
             filepath = subdir + os.sep + filename
-            if not filename.startswith(macRes):
-                if filepath.endswith(xmlExt):
-                    fixDoctype(outDir, filename, filepath)
+
+            if filepath.endswith(xmlExt):
+            fixDoctype(outDir, filename, filepath)
 
 
 # Step 4: COPY EACH FILE IN THE DIRECTORY, REPLACING DOCTYPE
@@ -61,7 +56,6 @@ def fixDoctype(outDir, filename, filepath):
     tree = etree.parse(filepath, parser)
     docinfo = tree.docinfo
     genTaskString = '''generalTask'''
-    classifyMapString = '''subjectScheme'''
 
     if docinfo.root_name == 'concept':
             newDoctype = '''<!DOCTYPE concept PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:concept" "concept.dtd">'''
@@ -77,17 +71,10 @@ def fixDoctype(outDir, filename, filepath):
             newDoctype = '''<!DOCTYPE reference PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:reference" "reference.dtd">'''
             print(r'Writing new doctype to ' + filepath)
     elif docinfo.root_name == 'map':
-        if classifyMapString in docinfo.doctype:
-            newDoctype = '''<!DOCTYPE map PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:classifyMap" "classifyMap.dtd">'''
-            print(r'Writing new doctype to ' + filepath)
-        else: 
             newDoctype = '''<!DOCTYPE map PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:map" "map.dtd">'''
             print(r'Writing new doctype to ' + filepath)
     elif docinfo.root_name == 'dita':
             newDoctype = '''<!DOCTYPE dita PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:ditabase" "ditabase.dtd">'''
-            print(r'Writing new doctype to ' + filepath)
-    elif docinfo.root_name == 'subjectScheme':
-            newDoctype = '''<!DOCTYPE subjectScheme PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:subjectScheme" "subjectScheme.dtd">'''
             print(r'Writing new doctype to ' + filepath)
     elif docinfo.root_name == 'topic':
             newDoctype = '''<!DOCTYPE topic PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:topic" "topic.dtd">'''

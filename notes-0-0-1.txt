@@ -8,3 +8,12 @@ Obviously, the program stopped when it could not parse the binary format files (
 
 So, the next step would be to include a check of the file type or file extension so that the script attempts to open only XML files.
 
+12:46 p.m. Checking file extensions with "endswith" works well, but these Mac files like "._authoring_key-gallery.dita" are binary fork resource files that stop processing just like the images were. Looking for a way to ignore those also.
+
+Figured out a nested if to ignore those files and need to add more to tuple for ignoring all Mac resource files. 
+
+Discovered I had not provided a newDoctype value for subjectScheme, so need to do that.
+
+Discovered I needed doctype for glossterm and troubleshooting. 
+
+NOTE for future: (Lesson learned) In the future, scrape files for docinfo and make sure you have everything you need. 
