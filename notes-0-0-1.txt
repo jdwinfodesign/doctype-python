@@ -1,0 +1,21 @@
+Ran the script on a full set of files today, the alcuin files, which was not randomly chosen exactly but was of equal utility, as the information set included a bunch of graphics files. No non-XML content files, but the graphics files provided some lessons I should have anticipated--proving once again that in Bismarck's estimation I would be considered a fool. 
+
+There are 121 files in 15 folders. 
+Only 18 files were processed, four in the root folder and the rest in two immediate children of the root folder.
+Those were in the folder names "appendices" (six files) and "frontmatter" (8 files) 
+Processing stopped on the first file in the "graphics" folder, which was the next folder in alphabetical order. 
+Obviously, the program stopped when it could not parse the binary format files (PNG and PPTX). 
+
+So, the next step would be to include a check of the file type or file extension so that the script attempts to open only XML files.
+
+12:46 p.m. Checking file extensions with "endswith" works well, but these Mac files like "._authoring_key-gallery.dita" are binary fork resource files that stop processing just like the images were. Looking for a way to ignore those also.
+
+Figured out a nested if to ignore those files and need to add more to tuple for ignoring all Mac resource files. 
+
+Discovered I had not provided a newDoctype value for subjectScheme, so need to do that.
+
+Discovered I needed doctype for <glossentry> and <troubleshooting>. 
+
+23oct added doctypes, successful transformation
+
+NOTE for future: (Lesson learned) In the future, scrape files for docinfo and make sure you have everything you need. 
