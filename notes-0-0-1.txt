@@ -16,4 +16,6 @@ Discovered I had not provided a newDoctype value for subjectScheme, so need to d
 
 Discovered I needed doctype for <glossentry> and <troubleshooting>. 
 
+23oct added doctypes, successful transformation
+
 NOTE for future: (Lesson learned) In the future, scrape files for docinfo and make sure you have everything you need. 
