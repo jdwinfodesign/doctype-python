@@ -92,6 +92,12 @@ def fixDoctype(outDir, filename, filepath):
     elif docinfo.root_name == 'topic':
             newDoctype = '''<!DOCTYPE topic PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:topic" "topic.dtd">'''
             print(r'Writing new doctype to ' + filepath)
+    elif docinfo.root_name == 'glossentry':
+            newDoctype = '''<!DOCTYPE glossentry PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:glossentry" "glossary.dtd">'''
+            print(r'Writing new doctype to ' + filepath)
+    elif docinfo.root_name == 'troubleshooting':
+            newDoctype = '''<!DOCTYPE troubleshooting PUBLIC "urn:pubid:jdwinfodesign.com:doctypes:dita:dtd:troubleshooting" "troubleshooting.dtd">'''
+            print(r'Writing new doctype to ' + filepath)
     else:
                 print(r'root_name not in list')
                 

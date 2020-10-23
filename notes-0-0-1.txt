@@ -14,6 +14,6 @@ Figured out a nested if to ignore those files and need to add more to tuple for 
 
 Discovered I had not provided a newDoctype value for subjectScheme, so need to do that.
 
-Discovered I needed doctype for glossterm and troubleshooting. 
+Discovered I needed doctype for <glossentry> and <troubleshooting>. 
 
 NOTE for future: (Lesson learned) In the future, scrape files for docinfo and make sure you have everything you need. 
